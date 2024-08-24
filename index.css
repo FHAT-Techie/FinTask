@@ -1,0 +1,451 @@
+/* Universal Selector Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Ensures that padding and border are included in the element's total width and height */
+}
+
+/* Set a consistent font and line-height */
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  /* Improves text readability */
+  -webkit-text-size-adjust: 100%;
+  /* Prevent font scaling in landscape */
+}
+
+/* Remove default margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set a consistent base size */
+body {
+  font-size: 100%;
+  font-weight: 400;
+  background:  #F4FAFB;
+}
+
+/* Remove list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove default text decoration and color from links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Reset table styles */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Reset form element styles */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* Ensure images are responsive */
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove default blockquote styles */
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: '';
+}
+
+/* Ensure all interactive elements have basic focus styling */
+a,
+button,
+input,
+textarea,
+select {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent anchor dragging */
+a {
+  -webkit-user-drag: none;
+}
+
+/* header style */
+
+.desktopHeader{
+  display: flex;
+  padding: 1.5rem 6.25rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo i {
+  display: none;
+
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.navBarTab{
+  display: flex ;
+  flex-direction: column;
+  height: 100%;
+padding: 1.5rem 1rem;
+justify-content: flex-start;
+align-items: flex-start;
+border-radius: 0rem 2rem 2rem 0;
+background: var(--Schemes-On-Primary, #FFF);
+gap: 40px;
+/* Inner shadow */
+box-shadow: -1px -1px 2px 0px #FFF inset, 1px 1px 2px 0px rgba(0, 105, 111, 0.50) inset;
+}
+
+.navBarTab ul{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  }
+  
+
+.mobileHeader{
+  display: none;
+ height: 100vh; 
+ justify-items: flex-start;
+ align-items: flex-start;
+ position: fixed; /* Keeps the sidebar fixed as you scroll */
+  top: 0;
+  left: 0;
+  z-index: 100000000;
+}
+
+.desktopHeader img{
+ 
+  width: 70px;
+ gap: 40px;
+}
+
+
+
+.navBar ul{
+  display: inline-flex;
+padding: 0.5rem 1rem;
+justify-content: center;
+align-items: center;
+border-radius: 2rem;
+background: var(--Schemes-On-Primary, #FFF);
+gap: 4px;
+
+/* Inner shadow */
+box-shadow: -1px -1px 2px 0px #FFF inset, 1px 1px 2px 0px rgba(0, 105, 111, 0.50) inset;
+}
+
+
+.pressedNav{
+  display: flex;
+width: 8.5625rem;
+padding: 0.625rem;
+justify-content: center;
+align-items: center;
+gap: 0.625rem;
+border-radius: 2rem;
+background: var(--Schemes-Primary, #00696F);
+color: var(--Schemes-On-Primary, #FFF);
+/* material-theme/label/large */
+font-family: Montserrat;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1.25rem; /* 142.857% */
+letter-spacing: 0.00625rem;
+}
+.pressedNavTab{
+  display: flex;
+width: 8.5625rem;
+padding: 0.625rem;
+justify-content: fl;
+align-items: center;
+gap: 0.625rem;
+border-radius: 2rem;
+background: var(--Schemes-Primary, #00696F);
+color: var(--Schemes-On-Primary, #FFF);
+/* material-theme/label/large */
+font-family: Montserrat;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1.25rem; /* 142.857% */
+letter-spacing: 0.00625rem;
+}
+
+.defaultNav{
+  color: var(--Schemes-On-Primary-Container, #002022);
+
+/* material-theme/label/large */
+font-family: Montserrat;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1.25rem; /* 142.857% */
+letter-spacing: 0.00625rem;
+
+display: flex;
+width: 8.5625rem;
+padding: 0.625rem;
+justify-content: center;
+align-items: center;
+gap: 0.625rem;
+border-radius: 2rem;
+background: var(--Schemes-On-Primary, #FFF);
+
+}
+
+.defaultNavTab{
+  color: var(--Schemes-On-Primary-Container, #002022);
+/* margin-top: 4px;
+margin-bottom: 4px; */
+/* material-theme/label/large */
+font-family: Montserrat;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1.25rem; /* 142.857% */
+letter-spacing: 0.00625rem;
+
+display: flex;
+width: 8.5625rem;
+padding: 0.625rem;
+justify-content: flex-start;
+align-items: center;
+gap: 0.625rem;
+border-radius: 2rem;
+background: var(--Schemes-On-Primary, #FFF);
+}
+
+.defaultNavTab:hover{
+  background-color: #F4FAFB;
+}
+.defaultNav:hover{
+  background-color: #F4FAFB;
+}
+
+.calBTN{
+  color: var(--Schemes-Primary, #00696F);
+
+/* material-theme/label/large */
+font-family: Montserrat;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1.25rem; /* 142.857% */
+letter-spacing: 0.00625rem;
+
+display: flex;
+width: 8.5625rem;
+padding:0.625rem;
+justify-content: center;
+align-items: center;
+gap: 0.625rem;
+height: fit-content;
+
+border-radius: 2rem;
+background: var(--Schemes-On-Primary, #FFF);
+
+/* pressed */
+box-shadow: -1px -1px 2px 0px #FFF, 1px 1px 2px 0px rgba(0, 105, 111, 0.50);
+
+}
+
+.calBTN:hover{
+background: var(--Schemes-On-Primary, #FFF);
+
+/* Button shadow 1 */
+box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.50), 5px 5px 10px 0px rgba(0, 105, 111, 0.10), 10px 10px 20px 0px rgba(0, 105, 111, 0.10), -10px -10px 20px 0px rgba(255, 255, 255, 0.50);
+}
+
+.logo img{
+  width: 150px;
+}
+
+
+@media(max-width: 1120px){
+  .desktopHeader{
+    padding: 0.75rem 3rem;
+
+  }
+ 
+  .navBar{
+    display: none;
+  }
+
+ 
+  .desktopHeader i {
+    display: block;
+  }
+  .mobileHeader{
+    display: block;
+  }
+  .logo img{
+    width: 100px;
+  }
+  .mobileHeader{
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .desktopHeader{
+    padding: 0.75rem 1rem;
+
+  }
+}
+
+/* weather section style */
+.weathersectionwraper{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.weatherCon{
+padding: auto;
+width: 90%;
+padding: 1rem 0rem;
+/* gap: 20px; */
+/* align-items: flex-end; */
+background: var(--Schemes-Tertiary-Fixed-Dim, #B7C7EA);
+position: relative;
+height: 50px;
+overflow: hidden;
+}
+@keyframes scrollright{
+ 
+  to{ right: -200px}
+}
+
+.weatherBox{
+  /* display: inline-flex;
+flex-direction: column;
+align-items: center; */
+position: absolute;
+right: 100%;
+animation-name: scrollright;
+animation-duration: 30s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+width: 500px;
+bottom: 7px
+}
+
+
+
+
+.degree{
+  display: flex;
+justify-content: center;
+align-items: center;
+gap: 0.25rem;
+align-self: stretch;
+color: #374764;
+}
+ .degree P{
+  color: var(--Schemes-On-Tertiary-Fixed-Variant, #374764);
+
+/* material-theme/label/large */
+font-family: Montserrat;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1.25rem; /* 142.857% */
+letter-spacing: 0.00625rem;
+ }
+
+.city P{
+  color: var(--Schemes-On-Tertiary-Fixed-Variant, #374764);
+text-align: center;
+
+/* material-theme/label/small */
+font-family: Montserrat;
+font-size: 0.6875rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1rem; /* 145.455% */
+letter-spacing: 0.03125rem;
+}
+
+.city1{
+  animation-delay: calc(30s / 10 * (10 - 1)* - 1);
+}
+.city2{
+  animation-delay: calc(30s / 10 * (10 - 2)  * -1);
+}
+.city3{
+  animation-delay: calc(30s / 10 * (10 - 3) * -1);
+}
+.city4{
+  animation-delay: calc(30s / 10 * (10 - 4) * -1);
+}
+.city5{
+  animation-delay: calc(30s / 10 * (10 - 5)* -1);
+}
+.city6{
+  animation-delay: calc(30s / 10 * (10 - 6)* -1);
+}
+.city7{
+  animation-delay: calc(30s / 10 * (10 - 7) * -1);
+}
+.city8{
+  animation-delay: calc(30s / 10 * (10 - 8)* -1);
+}
+.city9{
+  animation-delay: calc(30s / 10 * (10 - 9)* -1);
+}
+.city10{
+  animation-delay: calc(30s / 10 * (10 - 10)* -1);
+}
+
+@media (max-width: 1120px){
+  .weatherBox{
+    right: 200%;
+  }
+}
+

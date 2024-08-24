@@ -1,6 +1,9 @@
 let menuBar = document.querySelector(`.fa-bars`);
 let sideBar = document.querySelector(`.mobileHeader`);
 let mediaQuery = window.matchMedia("(max-width: 1120px)");
+let calculatorBTN = document.querySelector(`.calBTN`)
+let calculatorOverlay = document.querySelector(`.calculatorSection`)
+let cancelCalOverlay = document.querySelector(`#cancelOverlay`)
 let sideBarCancel = document.querySelector(`.fa-xmark`);
 
 // sideBar
@@ -322,3 +325,14 @@ function weatherScroll() {
     }
 
 weatherScroll();
+
+
+// Calculator
+
+calculatorBTN.addEventListener(`click`, function showCalculator() {
+    calculatorOverlay.style.display = `flex`
+})
+
+cancelCalOverlay.addEventListener(`click`, function cancelCalOverlay() {
+    calculatorOverlay.style.display = `none`
+})

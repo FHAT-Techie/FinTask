@@ -922,6 +922,7 @@ letter-spacing: 0.00625rem;
   align-items: center;
   margin: 1.5em 100px;
  }
+ 
  @media (max-width : 480px) {
 .blogBox{
   width: 100%;

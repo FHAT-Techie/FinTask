@@ -419,3 +419,31 @@ function calculator() {
 }
 
 calculator();
+
+// news fetch
+function news() {
+  const apiKey = `03f943f2022f4d75a6d6f4efe76592bf`;
+  const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.articles);
+
+      let topstoryP = document.querySelector(`.topstoryPara`);
+      let articleTitle = data.articles[0].title;
+      topstoryP.textContent = articleTitle;
+
+      let link = data.articles[0].url;
+
+      let topStoryBTN = document.querySelector(`.topStoryBTN`);
+      // Set the href attribute if the button is inside an anchor tag
+      topStoryBTN.setAttribute('onclick', `window.open('${link}', '_blank')`);
+
+      console.log(topStoryBTN);
+    })
+    .catch((error) => console.error("Error fetching news:", error));
+}
+
+
+news();

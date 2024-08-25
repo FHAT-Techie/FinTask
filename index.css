@@ -613,7 +613,6 @@ calculator style */
 }
 
 .calculatorSection {
-  
   width: 100%;
   background: rgba(0, 0, 0, 0.1);
   height: 100vh;
@@ -647,4 +646,10 @@ calculator style */
 
 .mainBTN i {
   color: #fff;
+}
+
+.calInput {
+  color: #000;
+  padding: 1rem;
+  text-align: end;
 }

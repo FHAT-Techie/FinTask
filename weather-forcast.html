@@ -4,17 +4,223 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="weather-forcast.css">
-
+    <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<script src="./weather-forecast.js" defer></script>
+<script src="./Index.js" defer></script>
 </head>
 <body>
+<section class="headSection">
+    <!-- header -->
+<header class="desktopHeader">
+    <div class="logo">
+       
+            <i class="fa-solid fa-bars"></i>
     
+        <img src="/Resource/logo.png" alt="FinTask Logo">
+    </div>
+    <nav class="navBar">
+    
+        <ul>
+            <li>
+                <a href="Index.html" class="defaultNav">
+                Finance News
+            </a>
+            </li>
+            <li>
+                <a href="to-do.html " class="defaultNav">
+                ToDo List
+            </a>
+            </li>
+            <li>
+                <a href="expense-traker.html" class="defaultNav">
+                Budgeting
+            </a>
+            </li>
+            <li>
+                <a href="weather-forcast.html" class="pressedNav">
+                Weather Check
+            </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="calBTN">
+        Calculator <i class="fa-solid fa-calculator"></i>
+    </div>
+</header>
+    
+<!-- tablet and mobile header -->
+
+<header class="mobileHeader">
+    
+    <nav class="navBarTab">
+        <div>
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+       
+        <ul>
+            
+            <li>
+                <a href="Index.html" class="pressedNavTab">
+                Finance News
+            </a>
+            </li>
+            <li>
+                <a href="to-do.html " class="defaultNavTab">
+                ToDo List
+            </a>
+            </li>
+            <li>
+                <a href="expense-traker.html" class="defaultNavTab">
+                Budgeting
+            </a>
+            </li>
+            <li>
+                <a href="weather-forcast.html" class="defaultNavTab">
+                Weather Check
+            </a>
+            </li>
+        </ul>
+    </nav>
+
+</header>
+
+
+
+
+<!-- weather section -->
+<div class="weathersectionwraper">
+<section class="weatherCon">
+   <div class="weatherBox city1">
+    <div class="degree">
+        <p class="lagosDegree"></p>
+        <!-- <i class="fa-solid fa-snowflake"></i> -->
+    </div>
+   <div class="city">
+    <p>Lagos</p>
+   </div>
+   </div> 
+   <div class="weatherBox city2">
+    <div class="degree degreebox2">
+        <p class="accraDegree">0</p>
+        <!-- <i class="fa-solid fa-snowflake"></i> -->
+    </div>
+   <div class="city">
+    <p class="">Accra</p>
+   </div>
+   </div> 
+   <div class="weatherBox city3">
+    <div class="degree degreebox3">
+        <p class="londonDegree">0°</p>
+        <!-- <i class="fa-solid fa-snowflake"></i> -->
+    </div>
+   <div class="city">
+    <p>London</p>
+   </div>
+   </div> 
+   <div class="weatherBox city4">
+    <div class="degree degreebox4">
+        <p class="parisDegree"></p>
+        <!-- <i class="fa-solid fa-snowflake"></i> -->
+    </div>
+   <div class="city">
+    <p>Paris</p>
+   </div>
+   </div> 
+   <div class="weatherBox city5">
+    <div class="degree degreebox5">
+        <p class="newyorkDegree">0°</p>
+        <!-- <i class="fa-solid fa-snowflake"></i> -->
+    </div>
+   <div class="city">
+    <p>New york</p>
+   </div>
+   </div> 
+   <div class="weatherBox city6">
+    <div class="degree degreebox6">
+        <p class="manchesterDegree"></p>
+        <!-- <i class="fa-solid fa-snowflake"></i> -->
+    </div>
+   <div class="city">
+    <p>Manchester</p>
+   </div>
+   </div> 
+   <div class="weatherBox city7">
+    <div class="degree degreebox7">
+        <p class="dakarDegree"></p>
+        <!-- <i class="fa-solid fa-snowflake"></i> -->
+    </div>
+   <div class="city">
+    <p>Dakar</p>
+   </div>
+   </div> 
+   <div class="weatherBox city8">
+    <div class="degree degreebox8">
+        <p class="abujaDegree" >0°</p>
+        <!-- <i class="fa-solid fa-snowflake"></i> -->
+    </div>
+   <div class="city">
+    <p>Abuja</p>
+   </div>
+   </div> 
+   <div class="weatherBox city9">
+    <div class="degree degreebox9">
+        <p class="madridDegree"></p>
+        <!-- <i class="fa-solid fa-snowflake"></i> -->
+    </div>
+   <div class="city">
+    <p>Madrid</p>
+   </div>
+   </div> 
+</div>
+</section>
+</section>
+
+<section class="calculatorSection">
+    <div class="calculator">
+        <div>
+            <i class="fa-solid fa-xmark" id="cancelOverlay"></i>
+            </div>
+        <form action="">
+        <input type="text" class="calInput">
+            <div class="buttonsection">
+                <div class="role1">
+                    <button class="secBTN" id="clearCal">C</button>
+                    <button class="secBTN" id="delCal">DEL</button>
+                    <button class="secBTN" id="perCal" value="%">%</button>
+                    <button id="plusBTN" value="+" class="mainBTN"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <div class="role1">
+                    <button class="priBTN" id="one" value="1">1</button>
+                    <button class="priBTN" id="two" value="2">2</button>
+                    <button class="priBTN" id="three" value="3">3</button>
+                    <button class="mainBTN" value="/" id="divideCal" ><i class="fa-solid fa-divide"></i></button>
+                </div>
+                <div class="role1">
+                    <button class="priBTN" id="four" value="4">4</button>
+                    <button class="priBTN" id="five" value="5">5</button>
+                    <button class="priBTN" id="six" value="6">6</button>
+                    <button class="mainBTN" id="minusCal" value="-"><i class="fa-solid fa-minus"></i></button>
+                </div>
+                <div class="role1">
+                    <button class="priBTN" id="seven" value="7">7</button>
+                    <button class="priBTN" id="eight" value="8">8</button>
+                    <button class="priBTN" id="nine" value="9">9</button>
+                    <button class="mainBTN" id="mulCal" value="*"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="role1">
+                    <button class="priBTN" id="zero" value="0">0</button>
+                    <button class="priBTN" value=".">.</button>
+                    <button class="mainBTN equal"><i class="fa-solid fa-equals"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
 </body>
 </html>

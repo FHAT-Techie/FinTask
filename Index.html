@@ -187,37 +187,36 @@
             <i class="fa-solid fa-xmark" id="cancelOverlay"></i>
             </div>
         <form action="">
-            <input class="calInput" type="text">
-
+        <input type="text" class="calInput">
             <div class="buttonsection">
                 <div class="role1">
-                    <div class="secBTN">C</div>
-                    <div class="secBTN">DEL</div>
-                    <div class="secBTN">%</div>
-                    <div class="mainBTN"><i class="fa-solid fa-plus"></i></div>
+                    <button class="secBTN" id="clearCal">C</button>
+                    <button class="secBTN" id="delCal">DEL</button>
+                    <button class="secBTN" id="perCal" value="%">%</button>
+                    <button id="plusBTN" value="+" class="mainBTN"><i class="fa-solid fa-plus"></i></button>
                 </div>
                 <div class="role1">
-                    <div class="priBTN">1</div>
-                    <div class="priBTN">2</div>
-                    <div class="priBTN">3</div>
-                    <div class="mainBTN"><i class="fa-solid fa-divide"></i></div>
+                    <button class="priBTN" id="one" value="1">1</button>
+                    <button class="priBTN" id="two" value="2">2</button>
+                    <button class="priBTN" id="three" value="3">3</button>
+                    <button class="mainBTN" value="/" id="divideCal" ><i class="fa-solid fa-divide"></i></button>
                 </div>
                 <div class="role1">
-                    <div class="priBTN">4</div>
-                    <div class="priBTN">5</div>
-                    <div class="priBTN">6</div>
-                    <div class="mainBTN"><i class="fa-solid fa-minus"></i></div>
+                    <button class="priBTN" id="four" value="4">4</button>
+                    <button class="priBTN" id="five" value="5">5</button>
+                    <button class="priBTN" id="six" value="6">6</button>
+                    <button class="mainBTN" id="minusCal" value="-"><i class="fa-solid fa-minus"></i></button>
                 </div>
                 <div class="role1">
-                    <div class="priBTN">7</div>
-                    <div class="priBTN">8</div>
-                    <div class="priBTN">9</div>
-                    <div class="mainBTN"><i class="fa-solid fa-xmark"></i></div>
+                    <button class="priBTN" id="seven" value="7">7</button>
+                    <button class="priBTN" id="eight" value="8">8</button>
+                    <button class="priBTN" id="nine" value="9">9</button>
+                    <button class="mainBTN" id="mulCal" value="*"><i class="fa-solid fa-xmark"></i></button>
                 </div>
                 <div class="role1">
-                    <div class="priBTN">0</div>
-                    <div class="priBTN">.</div>
-                    <div class="mainBTN equal"><i class="fa-solid fa-equals"></i></div>
+                    <button class="priBTN" id="zero" value="0">0</button>
+                    <button class="priBTN" value=".">.</button>
+                    <button class="mainBTN equal"><i class="fa-solid fa-equals"></i></button>
                 </div>
             </div>
         </form>

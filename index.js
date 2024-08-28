@@ -623,3 +623,123 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+function weatherPage() {
+  const weatherResultCon = document.querySelector(`.weatherResultCon`);
+  const weatherCityInput = document.querySelector(`.weatherCity`);
+  const weathercheckBTN = document.querySelector(`.weatherBTN`);
+
+  weathercheckBTN.addEventListener(`click`, (event) => {
+      event.preventDefault(); // Prevent form submission
+      const city = weatherCityInput.value;
+      console.log(city);
+
+      const apiKeyweather = `db78b3d94a007c958c44142be214ba78`;
+      const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKeyweather}`;
+
+      // Clear previous result
+      weatherResultCon.innerHTML = "";
+
+      // Create result container
+      const resultBox = document.createElement(`div`);
+      resultBox.classList.add(`resultBox`);
+      weatherResultCon.appendChild(resultBox);
+
+      // Weather Degree
+      const weatherDegree = document.createElement(`div`);
+      weatherDegree.classList.add(`weatherDegree`);
+      const weatherDegreeH1 = document.createElement(`h1`);
+      const weatherIMG = document.createElement(`img`);
+      weatherDegree.appendChild(weatherDegreeH1);
+      weatherDegree.appendChild(weatherIMG);
+      resultBox.appendChild(weatherDegree);
+
+      // More Weather Info
+      const moreWeatherInfo = document.createElement(`div`);
+      moreWeatherInfo.classList.add(`moreWeatherInfo`);
+      const locationBox = document.createElement(`div`);
+      locationBox.classList.add(`locationBox`);
+      const locationBoxp = document.createElement(`p`);
+      const locationBoxH1 = document.createElement(`h1`);
+      locationBox.append(locationBoxp, locationBoxH1);
+      moreWeatherInfo.appendChild(locationBox);
+      const dayResult = document.createElement(`p`);
+      dayResult.classList.add(`dayResult`);
+      moreWeatherInfo.appendChild(dayResult);
+      resultBox.appendChild(moreWeatherInfo);
+
+      // SVG Creation
+      const svg = document.createElement('svg');
+      svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+      svg.setAttribute("width", "280");
+      svg.setAttribute("height", "173");
+      svg.setAttribute("viewBox", "0 0 280 173");
+
+      const path = document.createElement('path');
+      path.setAttribute("d", "M0 68.271C0 31.9023 0 13.7179 11.8946 4.71492C23.7892 -4.28806 41.2903 0.649757 76.2925 10.5254L247.948 58.9567C263.372 63.3084 271.084 65.4843 275.542 71.3744C280 77.2646 280 85.2776 280 101.303V129C280 149.742 280 160.113 273.556 166.556C267.113 173 256.742 173 236 173H44C23.2582 173 12.8873 173 6.44365 166.556C0 160.113 0 149.742 0 129V68.271Z");
+      path.setAttribute("fill", "url(#paint0_linear_33_323)");
+
+      const defs = document.createElement('defs');
+      const linearGradient = document.createElement('linearGradient');
+      linearGradient.setAttribute("id", "paint0_linear_33_323");
+      linearGradient.setAttribute("x1", "140");
+      linearGradient.setAttribute("y1", "-11");
+      linearGradient.setAttribute("x2", "140");
+      linearGradient.setAttribute("y2", "173");
+      linearGradient.setAttribute("gradientUnits", "userSpaceOnUse");
+
+      const stop1 = document.createElement('stop');
+      stop1.setAttribute("offset", "0%");
+      stop1.setAttribute("stop-color", "#B7C7EA");
+
+      const stop2 = document.createElement('stop');
+      stop2.setAttribute("offset", "0.0001");
+      stop2.setAttribute("stop-color", "#5C98AD");
+
+      const stop3 = document.createElement('stop');
+      stop3.setAttribute("offset", "100%");
+      stop3.setAttribute("stop-color", "#00696F");
+
+      linearGradient.appendChild(stop1);
+      linearGradient.appendChild(stop2);
+      linearGradient.appendChild(stop3);
+      defs.appendChild(linearGradient);
+      svg.appendChild(defs);
+      svg.appendChild(path);
+      resultBox.appendChild(svg);
+
+      // Fetch Weather Data
+      fetch(weatherURL)
+          .then((response) => response.json())
+          .then((data) => {
+              console.log(data);
+              const degree = `${Math.round(data.main.temp - 273.15)}°`;
+              weatherDegreeH1.textContent = degree;
+
+              const humidity = data.main.humidity;
+              locationBoxp.textContent = `H: ${humidity}%`;
+
+              const weatherCityIn = data.name;
+              const countryIn = data.sys.country;
+              locationBoxH1.textContent = `${weatherCityIn}, ${countryIn}`;
+
+              // Update Weather Image and Description
+              if (degree <= 5) {
+                  dayResult.innerText = `Snow Day`;
+                  weatherIMG.setAttribute(`src`, `./Resource/cold.png`);
+              } else if (degree <= 20) {
+                  dayResult.innerText = `Cloudy Day`;
+                  weatherIMG.setAttribute(`src`, `./Resource/cold.png`);
+              } else if (degree <= 25) {
+                  dayResult.innerText = `Sunny Day`;
+                  weatherIMG.setAttribute(`src`, `./Resource/cloud.png`);
+              } else {
+                  dayResult.innerText = `Hot Day`;
+                  weatherIMG.setAttribute(`src`, `./Resource/hot.png`);
+              }
+          })
+          .catch((error) => console.error("Error fetching weather data:", error));
+  });
+}
+
+
+weatherPage()

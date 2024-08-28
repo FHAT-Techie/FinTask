@@ -629,7 +629,7 @@ calculator style */
   /* Full height */
   background-color: rgba(0, 0, 0, 0.4);
   /* Black background with 50% opacity */
-  z-index: 1000;
+  z-index: 99999999999999999999999999999999999;
   /* Make sure it is above other elements */
   position: absolute;
 }

@@ -627,6 +627,7 @@ function weatherPage() {
   const weatherResultCon = document.querySelector(`.weatherResultCon`);
   const weatherCityInput = document.querySelector(`.weatherCity`);
   const weathercheckBTN = document.querySelector(`.weatherBTN`);
+  let weatherForm = document.querySelector(`.weatherCheckerForm`)
 
   weathercheckBTN.addEventListener(`click`, (event) => {
       event.preventDefault(); // Prevent form submission
@@ -709,36 +710,44 @@ function weatherPage() {
 
       // Fetch Weather Data
       fetch(weatherURL)
-          .then((response) => response.json())
-          .then((data) => {
-              console.log(data);
-              const degree = `${Math.round(data.main.temp - 273.15)}°`;
-              weatherDegreeH1.textContent = degree;
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        const degreeInCelsius = Math.round(data.main.temp - 273.15); // Convert Kelvin to Celsius
+        const degree = `${degreeInCelsius}°`; // Convert to a string with the degree symbol
+        weatherDegreeH1.textContent = degree;
 
-              const humidity = data.main.humidity;
-              locationBoxp.textContent = `H: ${humidity}%`;
+        const humidity = data.main.humidity;
+        locationBoxp.textContent = `H: ${humidity}%`;
 
-              const weatherCityIn = data.name;
-              const countryIn = data.sys.country;
-              locationBoxH1.textContent = `${weatherCityIn}, ${countryIn}`;
+        const weatherCityIn = data.name;
+        const countryIn = data.sys.country;
+        locationBoxH1.textContent = `${weatherCityIn}, ${countryIn}`;
 
-              // Update Weather Image and Description
-              if (degree <= 5) {
-                  dayResult.innerText = `Snow Day`;
-                  weatherIMG.setAttribute(`src`, `./Resource/cold.png`);
-              } else if (degree <= 20) {
-                  dayResult.innerText = `Cloudy Day`;
-                  weatherIMG.setAttribute(`src`, `./Resource/cold.png`);
-              } else if (degree <= 25) {
-                  dayResult.innerText = `Sunny Day`;
-                  weatherIMG.setAttribute(`src`, `./Resource/cloud.png`);
-              } else {
-                  dayResult.innerText = `Hot Day`;
-                  weatherIMG.setAttribute(`src`, `./Resource/hot.png`);
-              }
-          })
-          .catch((error) => console.error("Error fetching weather data:", error));
-  });
+        // Update Weather Image and Description
+
+        // Now, use degreeInCelsius for comparison
+        if (degreeInCelsius <= 5) {
+            dayResult.innerText = `Snow Day`;
+            weatherIMG.setAttribute(`src`, `./Resource/cold.png`);
+        } else if (degreeInCelsius <= 20) {
+            dayResult.innerText = `Cloudy Day`;
+            weatherIMG.setAttribute(`src`, `./Resource/cold.png`);
+        } else if (degreeInCelsius <= 25) {
+            dayResult.innerText = `Sunny Day`;
+            weatherIMG.setAttribute(`src`, `./Resource/cloud.png`);
+        } else {
+            dayResult.innerText = `Hot Day`;
+            weatherIMG.setAttribute(`src`, `./Resource/hot.png`);
+        }
+    })
+    .catch((error) => console.error("Error fetching weather data:", error));
+
+    weatherForm.reset()
+});
+
+
+
 }
 
 

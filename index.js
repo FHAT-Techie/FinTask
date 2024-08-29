@@ -6,6 +6,9 @@ let calculatorOverlay = document.querySelector(`.calculatorSection`);
 let cancelCalOverlay = document.querySelector(`#cancelOverlay`);
 let sideBarCancel = document.querySelector(`.fa-xmark`);
 
+
+todoPage() 
+
 // sideBar
 menuBar.addEventListener(`click`, () => {
   if (mediaQuery.matches) {
@@ -623,132 +626,226 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-function weatherPage() {
-  const weatherResultCon = document.querySelector(`.weatherResultCon`);
-  const weatherCityInput = document.querySelector(`.weatherCity`);
-  const weathercheckBTN = document.querySelector(`.weatherBTN`);
-  let weatherForm = document.querySelector(`.weatherCheckerForm`)
+document.addEventListener('DOMContentLoaded', () => {
+  function weatherPage() {
+    const weatherResultCon = document.querySelector(`.weatherResultCon`);
+    const weatherCityInput = document.querySelector(`.weatherCity`);
+    const weathercheckBTN = document.querySelector(`.weatherBTN`);
+    let weatherForm = document.querySelector(`.weatherCheckerForm`);
 
-  weathercheckBTN.addEventListener(`click`, (event) => {
-      event.preventDefault(); // Prevent form submission
-      const city = weatherCityInput.value;
-      console.log(city);
+    if (weathercheckBTN) {
+      weathercheckBTN.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent form submission
+        const city = weatherCityInput.value;
 
-      const apiKeyweather = `db78b3d94a007c958c44142be214ba78`;
-      const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKeyweather}`;
+        const apiKeyweather = `db78b3d94a007c958c44142be214ba78`;
+        const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKeyweather}`;
 
-      // Clear previous result
-      weatherResultCon.innerHTML = "";
+        // Clear previous result
+        weatherResultCon.innerHTML = "";
 
-      // Create result container
-      const resultBox = document.createElement(`div`);
-      resultBox.classList.add(`resultBox`);
-      weatherResultCon.appendChild(resultBox);
+        // Create result container
+        const resultBox = document.createElement('div');
+        resultBox.classList.add('resultBox');
+        weatherResultCon.appendChild(resultBox);
 
-      // Weather Degree
-      const weatherDegree = document.createElement(`div`);
-      weatherDegree.classList.add(`weatherDegree`);
-      const weatherDegreeH1 = document.createElement(`h1`);
-      const weatherIMG = document.createElement(`img`);
-      weatherDegree.appendChild(weatherDegreeH1);
-      weatherDegree.appendChild(weatherIMG);
-      resultBox.appendChild(weatherDegree);
+        // Weather Degree
+        const weatherDegree = document.createElement('div');
+        weatherDegree.classList.add('weatherDegree');
+        const weatherDegreeH1 = document.createElement('h1');
+        const weatherIMG = document.createElement('img');
+        weatherDegree.appendChild(weatherDegreeH1);
+        weatherDegree.appendChild(weatherIMG);
+        resultBox.appendChild(weatherDegree);
 
-      // More Weather Info
-      const moreWeatherInfo = document.createElement(`div`);
-      moreWeatherInfo.classList.add(`moreWeatherInfo`);
-      const locationBox = document.createElement(`div`);
-      locationBox.classList.add(`locationBox`);
-      const locationBoxp = document.createElement(`p`);
-      const locationBoxH1 = document.createElement(`h1`);
-      locationBox.append(locationBoxp, locationBoxH1);
-      moreWeatherInfo.appendChild(locationBox);
-      const dayResult = document.createElement(`p`);
-      dayResult.classList.add(`dayResult`);
-      moreWeatherInfo.appendChild(dayResult);
-      resultBox.appendChild(moreWeatherInfo);
+        // More Weather Info
+        const moreWeatherInfo = document.createElement('div');
+        moreWeatherInfo.classList.add('moreWeatherInfo');
+        const locationBox = document.createElement('div');
+        locationBox.classList.add('locationBox');
+        const locationBoxp = document.createElement('p');
+        const locationBoxH1 = document.createElement('h1');
+        locationBox.append(locationBoxp, locationBoxH1);
+        moreWeatherInfo.appendChild(locationBox);
+        const dayResult = document.createElement('p');
+        dayResult.classList.add('dayResult');
+        moreWeatherInfo.appendChild(dayResult);
+        resultBox.appendChild(moreWeatherInfo);
 
-      // SVG Creation
-      const svg = document.createElement('svg');
-      svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-      svg.setAttribute("width", "280");
-      svg.setAttribute("height", "173");
-      svg.setAttribute("viewBox", "0 0 280 173");
+        // SVG Creation
+        const svg = document.createElement('svg');
+        svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        svg.setAttribute('width', '280');
+        svg.setAttribute('height', '173');
+        svg.setAttribute('viewBox', '0 0 280 173');
 
-      const path = document.createElement('path');
-      path.setAttribute("d", "M0 68.271C0 31.9023 0 13.7179 11.8946 4.71492C23.7892 -4.28806 41.2903 0.649757 76.2925 10.5254L247.948 58.9567C263.372 63.3084 271.084 65.4843 275.542 71.3744C280 77.2646 280 85.2776 280 101.303V129C280 149.742 280 160.113 273.556 166.556C267.113 173 256.742 173 236 173H44C23.2582 173 12.8873 173 6.44365 166.556C0 160.113 0 149.742 0 129V68.271Z");
-      path.setAttribute("fill", "url(#paint0_linear_33_323)");
+        const path = document.createElement('path');
+        path.setAttribute('d', 'M0 68.271C0 31.9023 0 13.7179 11.8946 4.71492C23.7892 -4.28806 41.2903 0.649757 76.2925 10.5254L247.948 58.9567C263.372 63.3084 271.084 65.4843 275.542 71.3744C280 77.2646 280 85.2776 280 101.303V129C280 149.742 280 160.113 273.556 166.556C267.113 173 256.742 173 236 173H44C23.2582 173 12.8873 173 6.44365 166.556C0 160.113 0 149.742 0 129V68.271Z');
+        path.setAttribute('fill', 'url(#paint0_linear_33_323)');
 
-      const defs = document.createElement('defs');
-      const linearGradient = document.createElement('linearGradient');
-      linearGradient.setAttribute("id", "paint0_linear_33_323");
-      linearGradient.setAttribute("x1", "140");
-      linearGradient.setAttribute("y1", "-11");
-      linearGradient.setAttribute("x2", "140");
-      linearGradient.setAttribute("y2", "173");
-      linearGradient.setAttribute("gradientUnits", "userSpaceOnUse");
+        const defs = document.createElement('defs');
+        const linearGradient = document.createElement('linearGradient');
+        linearGradient.setAttribute('id', 'paint0_linear_33_323');
+        linearGradient.setAttribute('x1', '140');
+        linearGradient.setAttribute('y1', '-11');
+        linearGradient.setAttribute('x2', '140');
+        linearGradient.setAttribute('y2', '173');
+        linearGradient.setAttribute('gradientUnits', 'userSpaceOnUse');
 
-      const stop1 = document.createElement('stop');
-      stop1.setAttribute("offset", "0%");
-      stop1.setAttribute("stop-color", "#B7C7EA");
+        const stop1 = document.createElement('stop');
+        stop1.setAttribute('offset', '0%');
+        stop1.setAttribute('stop-color', '#B7C7EA');
 
-      const stop2 = document.createElement('stop');
-      stop2.setAttribute("offset", "0.0001");
-      stop2.setAttribute("stop-color", "#5C98AD");
+        const stop2 = document.createElement('stop');
+        stop2.setAttribute('offset', '0.0001');
+        stop2.setAttribute('stop-color', '#5C98AD');
 
-      const stop3 = document.createElement('stop');
-      stop3.setAttribute("offset", "100%");
-      stop3.setAttribute("stop-color", "#00696F");
+        const stop3 = document.createElement('stop');
+        stop3.setAttribute('offset', '100%');
+        stop3.setAttribute('stop-color', '#00696F');
 
-      linearGradient.appendChild(stop1);
-      linearGradient.appendChild(stop2);
-      linearGradient.appendChild(stop3);
-      defs.appendChild(linearGradient);
-      svg.appendChild(defs);
-      svg.appendChild(path);
-      resultBox.appendChild(svg);
+        linearGradient.appendChild(stop1);
+        linearGradient.appendChild(stop2);
+        linearGradient.appendChild(stop3);
+        defs.appendChild(linearGradient);
+        svg.appendChild(defs);
+        svg.appendChild(path);
+        resultBox.appendChild(svg);
 
-      // Fetch Weather Data
-      fetch(weatherURL)
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data);
-        const degreeInCelsius = Math.round(data.main.temp - 273.15); // Convert Kelvin to Celsius
-        const degree = `${degreeInCelsius}°`; // Convert to a string with the degree symbol
-        weatherDegreeH1.textContent = degree;
+        // Fetch Weather Data
+        fetch(weatherURL)
+          .then((response) => response.json())
+          .then((data) => {
+            const degreeInCelsius = Math.round(data.main.temp - 273.15); // Convert Kelvin to Celsius
+            const degree = `${degreeInCelsius}°`; // Convert to a string with the degree symbol
+            weatherDegreeH1.textContent = degree;
 
-        const humidity = data.main.humidity;
-        locationBoxp.textContent = `H: ${humidity}%`;
+            const humidity = data.main.humidity;
+            locationBoxp.textContent = `H: ${humidity}%`;
 
-        const weatherCityIn = data.name;
-        const countryIn = data.sys.country;
-        locationBoxH1.textContent = `${weatherCityIn}, ${countryIn}`;
+            const weatherCityIn = data.name;
+            const countryIn = data.sys.country;
+            locationBoxH1.textContent = `${weatherCityIn}, ${countryIn}`;
 
-        // Update Weather Image and Description
+            // Update Weather Image and Description
+            if (degreeInCelsius <= 5) {
+              dayResult.innerText = `Snow Day`;
+              weatherIMG.setAttribute('src', './Resource/cold.png');
+            } else if (degreeInCelsius <= 20) {
+              dayResult.innerText = `Cloudy Day`;
+              weatherIMG.setAttribute('src', './Resource/cold.png');
+            } else if (degreeInCelsius <= 25) {
+              dayResult.innerText = `Sunny Day`;
+              weatherIMG.setAttribute('src', './Resource/cloud.png');
+            } else {
+              dayResult.innerText = `Hot Day`;
+              weatherIMG.setAttribute('src', './Resource/hot.png');
+            }
+          })
+          .catch((error) => console.error('Error fetching weather data:', error));
 
-        // Now, use degreeInCelsius for comparison
-        if (degreeInCelsius <= 5) {
-            dayResult.innerText = `Snow Day`;
-            weatherIMG.setAttribute(`src`, `./Resource/cold.png`);
-        } else if (degreeInCelsius <= 20) {
-            dayResult.innerText = `Cloudy Day`;
-            weatherIMG.setAttribute(`src`, `./Resource/cold.png`);
-        } else if (degreeInCelsius <= 25) {
-            dayResult.innerText = `Sunny Day`;
-            weatherIMG.setAttribute(`src`, `./Resource/cloud.png`);
-        } else {
-            dayResult.innerText = `Hot Day`;
-            weatherIMG.setAttribute(`src`, `./Resource/hot.png`);
-        }
-    })
-    .catch((error) => console.error("Error fetching weather data:", error));
+        weatherForm.reset();
+      });
+    } else {
+      console.error("Button with class '.weatherBTN' not found.");
+    }
+  }
 
-    weatherForm.reset()
+  weatherPage();
 });
 
 
+// todo section code
 
+function todoPage() {
+  let openAddTaskBTN = document.querySelector('.opentodoform');
+  let todoForm = document.querySelector('#todoForm');
+  let inputTask = document.querySelector('.inputTask');
+  let priorityLevel = document.querySelector('#priorityLevel');
+  let categoryLevel = document.querySelector('#categoryLevel');
+  let taskDate = document.querySelector('#taskDate');
+  let taskTime = document.querySelector('#taskTime');
+  let addTaskBTN = document.querySelector('.taskButton');
+  let todoError = document.querySelector('.todoerror');
+
+  let todoArray = [
+
+  ]
+
+  // Ensure the button exists
+  if (openAddTaskBTN) {
+    openAddTaskBTN.addEventListener('click', () => {
+      if (todoForm.style.display === 'none' || todoForm.style.display === '') {
+        todoForm.style.display = 'flex'; // Show the form
+      } else {
+        todoForm.style.display = 'none'; // Hide the form
+      }
+    });
+  }
+
+  // Handle form submission
+  todoForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    let errors = [];
+
+    // Check if the task input is empty
+    if (inputTask.value.trim().length === 0) {
+      errors.push('Please enter a task description.');
+    }
+
+    // Check if priority level is selected
+    if (priorityLevel.value === '') {
+      errors.push('Please select a priority level.');
+    }
+
+    // Check if category level is selected
+    if (categoryLevel.value === '') {
+      errors.push('Please select a category.');
+    }
+
+    // Check if date is selected
+    if (taskDate.value === '') {
+      errors.push('Please select a date.');
+    }
+
+    // Check if time is selected
+    if (taskTime.value === '') {
+      errors.push('Please select a time.');
+    }
+
+    // If there are errors, display them
+    if (errors.length > 0) {
+      todoError.style.display = 'block'; // Show error message container
+      todoError.innerText = errors.join('\n'); // Display all errors
+      return; // Exit the function to prevent further execution
+    } else {
+      todoError.style.display = 'none'; // Hide the error message if no errors
+    }
+
+    // Create the task object
+    let todoObj = {
+      task: inputTask.value.trim(),
+      priority: priorityLevel.value,
+      category: categoryLevel.value,
+      date: taskDate.value,
+      time: taskTime.value,
+    };
+    todoArray.push(todoObj)
+   
+    let jsonString = JSON.stringify(todoArray)
+    console.log(jsonString)
+
+    localStorage.setItem(`todoItem`, jsonString )
+    
+     
+    // TODO: Add logic to save or display the new task
+
+    // Clear form fields after submission
+    todoForm.reset();
+  });
 }
 
 
-weatherPage()
+
+

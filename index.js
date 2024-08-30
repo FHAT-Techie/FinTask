@@ -6,8 +6,7 @@ let calculatorOverlay = document.querySelector(`.calculatorSection`);
 let cancelCalOverlay = document.querySelector(`#cancelOverlay`);
 let sideBarCancel = document.querySelector(`.fa-xmark`);
 
-
-todoPage() 
+todoPage();
 
 // sideBar
 menuBar.addEventListener(`click`, () => {
@@ -424,7 +423,7 @@ function calculator() {
 calculator();
 
 // news fetch
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   function news() {
     const apiKey = `a18b15a4-87a8-4b2b-b613-17857195bc64`;
     const searchTerm = "finance business stocks";
@@ -442,8 +441,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let link = data.response.results[0].webUrl;
         let topStoryBTN = document.querySelector(`.topStoryBTN`);
-        topStoryBTN.addEventListener('click', () => {
-          window.open(link, '_blank');
+        topStoryBTN.addEventListener("click", () => {
+          window.open(link, "_blank");
         });
 
         // Blog 1 section
@@ -459,8 +458,8 @@ document.addEventListener('DOMContentLoaded', function () {
           time1.textContent = date.toLocaleDateString();
 
           let linkUrl1 = data.response.results[1].webUrl;
-          link1.addEventListener('click', () => {
-            window.open(linkUrl1, '_blank');
+          link1.addEventListener("click", () => {
+            window.open(linkUrl1, "_blank");
           });
         } else {
           console.error('Button with ID "link1" not found.');
@@ -478,8 +477,8 @@ document.addEventListener('DOMContentLoaded', function () {
           time2.textContent = date2.toLocaleDateString();
 
           let linkUrl2 = data.response.results[2].webUrl;
-          link2.addEventListener('click', () => {
-            window.open(linkUrl2, '_blank');
+          link2.addEventListener("click", () => {
+            window.open(linkUrl2, "_blank");
           });
         } else {
           console.error('Button with ID "link2" not found.');
@@ -497,8 +496,8 @@ document.addEventListener('DOMContentLoaded', function () {
           time3.textContent = date3.toLocaleDateString();
 
           let linkUrl3 = data.response.results[3].webUrl;
-          link3.addEventListener('click', () => {
-            window.open(linkUrl3, '_blank');
+          link3.addEventListener("click", () => {
+            window.open(linkUrl3, "_blank");
           });
         } else {
           console.error('Button with ID "link3" not found.');
@@ -516,8 +515,8 @@ document.addEventListener('DOMContentLoaded', function () {
           time4.textContent = date4.toLocaleDateString();
 
           let linkUrl4 = data.response.results[4].webUrl;
-          link4.addEventListener('click', () => {
-            window.open(linkUrl4, '_blank');
+          link4.addEventListener("click", () => {
+            window.open(linkUrl4, "_blank");
           });
         } else {
           console.error('Button with ID "link4" not found.');
@@ -535,8 +534,8 @@ document.addEventListener('DOMContentLoaded', function () {
           time5.textContent = date5.toLocaleDateString();
 
           let linkUrl5 = data.response.results[5].webUrl;
-          link5.addEventListener('click', () => {
-            window.open(linkUrl5, '_blank');
+          link5.addEventListener("click", () => {
+            window.open(linkUrl5, "_blank");
           });
         } else {
           console.error('Button with ID "link5" not found.');
@@ -554,8 +553,8 @@ document.addEventListener('DOMContentLoaded', function () {
           time6.textContent = date6.toLocaleDateString();
 
           let linkUrl6 = data.response.results[6].webUrl;
-          link6.addEventListener('click', () => {
-            window.open(linkUrl6, '_blank');
+          link6.addEventListener("click", () => {
+            window.open(linkUrl6, "_blank");
           });
         } else {
           console.error('Button with ID "link6" not found.');
@@ -573,8 +572,8 @@ document.addEventListener('DOMContentLoaded', function () {
           time7.textContent = date7.toLocaleDateString();
 
           let linkUrl7 = data.response.results[7].webUrl;
-          link7.addEventListener('click', () => {
-            window.open(linkUrl7, '_blank');
+          link7.addEventListener("click", () => {
+            window.open(linkUrl7, "_blank");
           });
         } else {
           console.error('Button with ID "link7" not found.');
@@ -592,8 +591,8 @@ document.addEventListener('DOMContentLoaded', function () {
           time8.textContent = date8.toLocaleDateString();
 
           let linkUrl8 = data.response.results[8].webUrl;
-          link8.addEventListener('click', () => {
-            window.open(linkUrl8, '_blank');
+          link8.addEventListener("click", () => {
+            window.open(linkUrl8, "_blank");
           });
         } else {
           console.error('Button with ID "link8" not found.');
@@ -611,8 +610,8 @@ document.addEventListener('DOMContentLoaded', function () {
           time9.textContent = date9.toLocaleDateString();
 
           let linkUrl9 = data.response.results[9].webUrl;
-          link9.addEventListener('click', () => {
-            window.open(linkUrl9, '_blank');
+          link9.addEventListener("click", () => {
+            window.open(linkUrl9, "_blank");
           });
         } else {
           console.error('Button with ID "link9" not found.');
@@ -624,9 +623,7 @@ document.addEventListener('DOMContentLoaded', function () {
   news(); // Call the news function after DOM is fully loaded
 });
 
-
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   function weatherPage() {
     const weatherResultCon = document.querySelector(`.weatherResultCon`);
     const weatherCityInput = document.querySelector(`.weatherCity`);
@@ -634,7 +631,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let weatherForm = document.querySelector(`.weatherCheckerForm`);
 
     if (weathercheckBTN) {
-      weathercheckBTN.addEventListener('click', (event) => {
+      weathercheckBTN.addEventListener("click", (event) => {
         event.preventDefault(); // Prevent form submission
         const city = weatherCityInput.value;
 
@@ -645,64 +642,67 @@ document.addEventListener('DOMContentLoaded', () => {
         weatherResultCon.innerHTML = "";
 
         // Create result container
-        const resultBox = document.createElement('div');
-        resultBox.classList.add('resultBox');
+        const resultBox = document.createElement("div");
+        resultBox.classList.add("resultBox");
         weatherResultCon.appendChild(resultBox);
 
         // Weather Degree
-        const weatherDegree = document.createElement('div');
-        weatherDegree.classList.add('weatherDegree');
-        const weatherDegreeH1 = document.createElement('h1');
-        const weatherIMG = document.createElement('img');
+        const weatherDegree = document.createElement("div");
+        weatherDegree.classList.add("weatherDegree");
+        const weatherDegreeH1 = document.createElement("h1");
+        const weatherIMG = document.createElement("img");
         weatherDegree.appendChild(weatherDegreeH1);
         weatherDegree.appendChild(weatherIMG);
         resultBox.appendChild(weatherDegree);
 
         // More Weather Info
-        const moreWeatherInfo = document.createElement('div');
-        moreWeatherInfo.classList.add('moreWeatherInfo');
-        const locationBox = document.createElement('div');
-        locationBox.classList.add('locationBox');
-        const locationBoxp = document.createElement('p');
-        const locationBoxH1 = document.createElement('h1');
+        const moreWeatherInfo = document.createElement("div");
+        moreWeatherInfo.classList.add("moreWeatherInfo");
+        const locationBox = document.createElement("div");
+        locationBox.classList.add("locationBox");
+        const locationBoxp = document.createElement("p");
+        const locationBoxH1 = document.createElement("h1");
         locationBox.append(locationBoxp, locationBoxH1);
         moreWeatherInfo.appendChild(locationBox);
-        const dayResult = document.createElement('p');
-        dayResult.classList.add('dayResult');
+        const dayResult = document.createElement("p");
+        dayResult.classList.add("dayResult");
         moreWeatherInfo.appendChild(dayResult);
         resultBox.appendChild(moreWeatherInfo);
 
         // SVG Creation
-        const svg = document.createElement('svg');
-        svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-        svg.setAttribute('width', '280');
-        svg.setAttribute('height', '173');
-        svg.setAttribute('viewBox', '0 0 280 173');
+        const svg = document.createElement("svg");
+        svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+        svg.setAttribute("width", "280");
+        svg.setAttribute("height", "173");
+        svg.setAttribute("viewBox", "0 0 280 173");
 
-        const path = document.createElement('path');
-        path.setAttribute('d', 'M0 68.271C0 31.9023 0 13.7179 11.8946 4.71492C23.7892 -4.28806 41.2903 0.649757 76.2925 10.5254L247.948 58.9567C263.372 63.3084 271.084 65.4843 275.542 71.3744C280 77.2646 280 85.2776 280 101.303V129C280 149.742 280 160.113 273.556 166.556C267.113 173 256.742 173 236 173H44C23.2582 173 12.8873 173 6.44365 166.556C0 160.113 0 149.742 0 129V68.271Z');
-        path.setAttribute('fill', 'url(#paint0_linear_33_323)');
+        const path = document.createElement("path");
+        path.setAttribute(
+          "d",
+          "M0 68.271C0 31.9023 0 13.7179 11.8946 4.71492C23.7892 -4.28806 41.2903 0.649757 76.2925 10.5254L247.948 58.9567C263.372 63.3084 271.084 65.4843 275.542 71.3744C280 77.2646 280 85.2776 280 101.303V129C280 149.742 280 160.113 273.556 166.556C267.113 173 256.742 173 236 173H44C23.2582 173 12.8873 173 6.44365 166.556C0 160.113 0 149.742 0 129V68.271Z"
+        );
+        path.setAttribute("fill", "url(#paint0_linear_33_323)");
 
-        const defs = document.createElement('defs');
-        const linearGradient = document.createElement('linearGradient');
-        linearGradient.setAttribute('id', 'paint0_linear_33_323');
-        linearGradient.setAttribute('x1', '140');
-        linearGradient.setAttribute('y1', '-11');
-        linearGradient.setAttribute('x2', '140');
-        linearGradient.setAttribute('y2', '173');
-        linearGradient.setAttribute('gradientUnits', 'userSpaceOnUse');
+        const defs = document.createElement("defs");
+        const linearGradient = document.createElement("linearGradient");
+        linearGradient.setAttribute("id", "paint0_linear_33_323");
+        linearGradient.setAttribute("x1", "140");
+        linearGradient.setAttribute("y1", "-11");
+        linearGradient.setAttribute("x2", "140");
+        linearGradient.setAttribute("y2", "173");
+        linearGradient.setAttribute("gradientUnits", "userSpaceOnUse");
 
-        const stop1 = document.createElement('stop');
-        stop1.setAttribute('offset', '0%');
-        stop1.setAttribute('stop-color', '#B7C7EA');
+        const stop1 = document.createElement("stop");
+        stop1.setAttribute("offset", "0%");
+        stop1.setAttribute("stop-color", "#B7C7EA");
 
-        const stop2 = document.createElement('stop');
-        stop2.setAttribute('offset', '0.0001');
-        stop2.setAttribute('stop-color', '#5C98AD');
+        const stop2 = document.createElement("stop");
+        stop2.setAttribute("offset", "0.0001");
+        stop2.setAttribute("stop-color", "#5C98AD");
 
-        const stop3 = document.createElement('stop');
-        stop3.setAttribute('offset', '100%');
-        stop3.setAttribute('stop-color', '#00696F');
+        const stop3 = document.createElement("stop");
+        stop3.setAttribute("offset", "100%");
+        stop3.setAttribute("stop-color", "#00696F");
 
         linearGradient.appendChild(stop1);
         linearGradient.appendChild(stop2);
@@ -730,19 +730,21 @@ document.addEventListener('DOMContentLoaded', () => {
             // Update Weather Image and Description
             if (degreeInCelsius <= 5) {
               dayResult.innerText = `Snow Day`;
-              weatherIMG.setAttribute('src', './Resource/cold.png');
+              weatherIMG.setAttribute("src", "./Resource/cold.png");
             } else if (degreeInCelsius <= 20) {
               dayResult.innerText = `Cloudy Day`;
-              weatherIMG.setAttribute('src', './Resource/cold.png');
+              weatherIMG.setAttribute("src", "./Resource/cold.png");
             } else if (degreeInCelsius <= 25) {
               dayResult.innerText = `Sunny Day`;
-              weatherIMG.setAttribute('src', './Resource/cloud.png');
+              weatherIMG.setAttribute("src", "./Resource/cloud.png");
             } else {
               dayResult.innerText = `Hot Day`;
-              weatherIMG.setAttribute('src', './Resource/hot.png');
+              weatherIMG.setAttribute("src", "./Resource/hot.png");
             }
           })
-          .catch((error) => console.error('Error fetching weather data:', error));
+          .catch((error) =>
+            console.error("Error fetching weather data:", error)
+          );
 
         weatherForm.reset();
       });
@@ -754,73 +756,69 @@ document.addEventListener('DOMContentLoaded', () => {
   weatherPage();
 });
 
-
 // todo section code
 
 function todoPage() {
-  let openAddTaskBTN = document.querySelector('.opentodoform');
-  let todoForm = document.querySelector('#todoForm');
-  let inputTask = document.querySelector('.inputTask');
-  let priorityLevel = document.querySelector('#priorityLevel');
-  let categoryLevel = document.querySelector('#categoryLevel');
-  let taskDate = document.querySelector('#taskDate');
-  let taskTime = document.querySelector('#taskTime');
-  let addTaskBTN = document.querySelector('.taskButton');
-  let todoError = document.querySelector('.todoerror');
+  let openAddTaskBTN = document.querySelector(".opentodoform");
+  let todoForm = document.querySelector("#todoForm");
+  let inputTask = document.querySelector(".inputTask");
+  let priorityLevel = document.querySelector("#priorityLevel");
+  let categoryLevel = document.querySelector("#categoryLevel");
+  let taskDate = document.querySelector("#taskDate");
+  let taskTime = document.querySelector("#taskTime");
+  let todoError = document.querySelector(".todoerror");
 
-  let todoArray = [
+  let todoArray = JSON.parse(localStorage.getItem("todoItem")) || []; // Load from localStorage or start with an empty array
 
-  ]
-
-  // Ensure the button exists
+  // Ensure the button exists and toggle form visibility
   if (openAddTaskBTN) {
-    openAddTaskBTN.addEventListener('click', () => {
-      if (todoForm.style.display === 'none' || todoForm.style.display === '') {
-        todoForm.style.display = 'flex'; // Show the form
+    openAddTaskBTN.addEventListener("click", () => {
+      if (todoForm.style.display === "none" || !todoForm.style.display) {
+        todoForm.style.display = "flex"; // Show the form
       } else {
-        todoForm.style.display = 'none'; // Hide the form
+        todoForm.style.display = "none"; // Hide the form
       }
     });
   }
 
   // Handle form submission
-  todoForm.addEventListener('submit', (event) => {
+  todoForm.addEventListener("submit", (event) => {
     event.preventDefault(); // Prevent default form submission behavior
 
     let errors = [];
 
     // Check if the task input is empty
     if (inputTask.value.trim().length === 0) {
-      errors.push('Please enter a task description.');
+      errors.push("Please enter a task description.");
     }
 
     // Check if priority level is selected
-    if (priorityLevel.value === '') {
-      errors.push('Please select a priority level.');
+    if (priorityLevel.value === "") {
+      errors.push("Please select a priority level.");
     }
 
     // Check if category level is selected
-    if (categoryLevel.value === '') {
-      errors.push('Please select a category.');
+    if (categoryLevel.value === "") {
+      errors.push("Please select a category.");
     }
 
     // Check if date is selected
-    if (taskDate.value === '') {
-      errors.push('Please select a date.');
+    if (taskDate.value === "") {
+      errors.push("Please select a date.");
     }
 
     // Check if time is selected
-    if (taskTime.value === '') {
-      errors.push('Please select a time.');
+    if (taskTime.value === "") {
+      errors.push("Please select a time.");
     }
 
     // If there are errors, display them
     if (errors.length > 0) {
-      todoError.style.display = 'block'; // Show error message container
-      todoError.innerText = errors.join('\n'); // Display all errors
+      todoError.style.display = "block"; // Show error message container
+      todoError.innerText = errors.join("\n"); // Display all errors
       return; // Exit the function to prevent further execution
     } else {
-      todoError.style.display = 'none'; // Hide the error message if no errors
+      todoError.style.display = "none"; // Hide the error message if no errors
     }
 
     // Create the task object
@@ -831,21 +829,102 @@ function todoPage() {
       date: taskDate.value,
       time: taskTime.value,
     };
-    todoArray.push(todoObj)
-   
-    let jsonString = JSON.stringify(todoArray)
-    console.log(jsonString)
+    todoArray.push(todoObj);
 
-    localStorage.setItem(`todoItem`, jsonString )
-    
-     
-    // TODO: Add logic to save or display the new task
+    // Save to localStorage
+    localStorage.setItem("todoItem", JSON.stringify(todoArray));
+
+    // Display the updated todo list
+    displayTodo();
 
     // Clear form fields after submission
     todoForm.reset();
+
+    // Hide the form after submission
+    todoForm.style.display = "none";
   });
+
+  let displayTodo = function () {
+    let todolistCon = document.querySelector(".todolistCon");
+
+    // Clear the container before displaying the updated list
+    todolistCon.innerHTML = "";
+
+    todoArray.forEach((item) => {
+      let todoBoxHighP = document.createElement("div");
+      let todoHeader = document.createElement("div");
+      todoHeader.classList.add("todoHeader");
+      todoBoxHighP.classList.add("todoBoxHighP");
+
+      let todoH1 = document.createElement("h1");
+
+      todoHeader.append(todoH1);
+
+      let todoMid = document.createElement("div");
+      todoMid.classList.add("todoMid");
+
+      let todoTimeDate = document.createElement("div");
+      todoTimeDate.classList.add("todoTimeDate");
+      let todoTimeDateDate = document.createElement("p");
+      let todoTimeDateTime = document.createElement("p");
+
+      todoTimeDate.append(todoTimeDateDate, todoTimeDateTime);
+
+      let prioritySection = document.createElement("div");
+      let priorityP = document.createElement("p");
+      let categoryP = document.createElement("p");
+      categoryP.classList.add("highlighted");
+
+      let todobottom = document.createElement("div");
+      todobottom.classList.add("todobottom");
+      let done = document.createElement("div");
+      done.classList.add("done");
+      let label = document.createElement("label");
+      label.innerText = "Done?";
+      let checkbox = document.createElement("input");
+      label.setAttribute("for", "done");
+      checkbox.setAttribute("type", "checkbox");
+      checkbox.setAttribute("name", "done");
+      checkbox.setAttribute("id", "done");
+
+      let editDel = document.createElement("div");
+      editDel.classList.add("editDel");
+      let editIcon = document.createElement("i");
+      let deleteIcon = document.createElement("i");
+      editIcon.classList.add("fa-regular", "fa-pen-to-square");
+      deleteIcon.classList.add("fa-solid", "fa-trash");
+
+      editDel.append(editIcon, deleteIcon);
+      done.append(label, checkbox);
+      todobottom.append(done, editDel);
+
+      prioritySection.append(priorityP, categoryP);
+
+      todoMid.append(todoTimeDate, prioritySection);
+
+      todolistCon.append(todoBoxHighP);
+
+      todoBoxHighP.append(todoHeader, todoMid, todobottom);
+
+
+
+      todoH1.innerText = item.task;
+      todoTimeDateDate.innerText = item.date;
+      todoTimeDateTime.innerText = item.time;
+      priorityP.innerText = item.priority;
+      categoryP.innerText = item.category;
+
+     
+    });
+  };
+
+  // Display the todo items when the page loads
+  displayTodo();
 }
 
+// Call the function to initialize the page
+todoPage();
 
 
-
+// Call the function to initialize the page
+todoPage();

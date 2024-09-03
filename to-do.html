@@ -230,55 +230,50 @@
 <main class="todomain">
     <div class="todoinputContain">
         <button class="opentodoform">Add Task<i class="fa-solid fa-chevron-down"></i></button>
-
-
         <form action="" id="todoForm">
-        <div>
-            <label for="task" name="task" id="taskInput">Task</label>
-            <input type="text" class="inputTask" placeholder="Enter task">
-        </div>
-        <div>
-            <label for="priorityLevel">Priority Level</label>
-            <select name="priorityLevel" id="priorityLevel">
-                <option value="">choose priority Level</option>
-                <option value="High Priority">High Priority</option>
-                <option value="Mid Priority">Mid Priority</option>
-                <option value="Low Priority">Low Priority</option>
-            </select>
-        </div>
-        <div>
-            <label for="categoryLevel">category Level</label>
-            <select name="categoryLevel" id="categoryLevel">
-                <option value="">Choose category</option>
-                <option value="personal">Personal</option>
-                <option value="school">School</option>
-                <option value="work">Work</option>
-                <option value="home">Home</option>
-            </select>
-        </div>
-        <section class="dateTime" style="display: flex;">
-        <div>
-            <label for="taskDate">Event Date</label>
-            <input type="date" name="taskDate" id="taskDate">
-        </div>
-        <div>
-            <label for="taskTime">Task Time</label>
-            <input type="time" name="taskTime" id="taskTime">
-        </div>
-   </section>
-   <div>
-    <p class="todoerror">Please fill Information Properly</p>
-</div>
-        <button type="submit" class="taskButton">Add Task</button>
+            <div>
+                <label for="inputTask">Task</label>
+                <input type="text" id="inputTask" class="inputTask" placeholder="Enter task">
+            </div>
+            <div>
+                <label for="priorityLevel">Priority Level</label>
+                <select name="priorityLevel" id="priorityLevel">
+                    <option value="">Choose priority Level</option>
+                    <option value="High Priority">High Priority</option>
+                    <option value="Mid Priority">Mid Priority</option>
+                    <option value="Low Priority">Low Priority</option>
+                </select>
+            </div>
+            <div>
+                <label for="categoryLevel">Category Level</label>
+                <select name="categoryLevel" id="categoryLevel">
+                    <option value="">Choose category</option>
+                    <option value="Personal">Personal</option>
+                    <option value="School">School</option>
+                    <option value="Work">Work</option>
+                    <option value="Home">Home</option>
+                </select>
+            </div>
+            <div class="dateTime">
+                <div>
+                    <label for="taskDate">Event Date</label>
+                    <input type="date" name="taskDate" id="taskDate">
+                </div>
+                <div>
+                    <label for="taskTime">Task Time</label>
+                    <input type="time" name="taskTime" id="taskTime">
+                </div>
+            </div>
+            <div>
+                <p class="todoerror">Please fill in all fields.</p>
+            </div>
+            <button type="submit" class="taskButton">Add Task</button>
         </form>
     </div>
 
-
-    <div class="todolistCon">
-       
-        </div>
-    </div>
+    <div class="todolistCon"></div>
 </main>
+
 
 </body>
 </html>

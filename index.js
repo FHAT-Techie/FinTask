@@ -6,7 +6,7 @@ let calculatorOverlay = document.querySelector(`.calculatorSection`);
 let cancelCalOverlay = document.querySelector(`#cancelOverlay`);
 let sideBarCancel = document.querySelector(`.fa-xmark`);
 
-todoPage();
+
 
 // sideBar
 menuBar.addEventListener(`click`, () => {
@@ -828,6 +828,7 @@ function todoPage() {
       category: categoryLevel.value,
       date: taskDate.value,
       time: taskTime.value,
+      done: false // Add a 'done' property to track completion status
     };
     todoArray.push(todoObj);
 
@@ -850,14 +851,13 @@ function todoPage() {
     // Clear the container before displaying the updated list
     todolistCon.innerHTML = "";
 
-    todoArray.forEach((item) => {
+    todoArray.forEach((item, index) => {
       let todoBoxHighP = document.createElement("div");
       let todoHeader = document.createElement("div");
       todoHeader.classList.add("todoHeader");
       todoBoxHighP.classList.add("todoBoxHighP");
 
       let todoH1 = document.createElement("h1");
-
       todoHeader.append(todoH1);
 
       let todoMid = document.createElement("div");
@@ -882,10 +882,11 @@ function todoPage() {
       let label = document.createElement("label");
       label.innerText = "Done?";
       let checkbox = document.createElement("input");
-      label.setAttribute("for", "done");
+      label.setAttribute("for", "done-" + index);
       checkbox.setAttribute("type", "checkbox");
       checkbox.setAttribute("name", "done");
-      checkbox.setAttribute("id", "done");
+      checkbox.setAttribute("id", "done-" + index);
+      checkbox.checked = item.done;
 
       let editDel = document.createElement("div");
       editDel.classList.add("editDel");
@@ -906,25 +907,51 @@ function todoPage() {
 
       todoBoxHighP.append(todoHeader, todoMid, todobottom);
 
-
-
       todoH1.innerText = item.task;
       todoTimeDateDate.innerText = item.date;
       todoTimeDateTime.innerText = item.time;
       priorityP.innerText = item.priority;
       categoryP.innerText = item.category;
 
-     
+      // Strike through the task if done
+      if (item.done) {
+        todoH1.style.textDecoration = "line-through";
+      }
+
+      // Handle checkbox change
+      checkbox.addEventListener("change", (event) => {
+        item.done = event.target.checked;
+        localStorage.setItem("todoItem", JSON.stringify(todoArray));
+        if (item.done) {
+          todoH1.style.textDecoration = "line-through";
+        } else {
+          todoH1.style.textDecoration = "none";
+        }
+      });
+
+      // Handle edit
+      editIcon.addEventListener("click", () => {
+        // Prompt user for new task details (could be replaced with a more advanced edit form)
+        let newTask = prompt("Edit task description:", item.task);
+        if (newTask !== null && newTask.trim().length > 0) {
+          item.task = newTask.trim();
+          localStorage.setItem("todoItem", JSON.stringify(todoArray));
+          displayTodo(); // Refresh the todo list
+        }
+      });
+
+      // Handle delete
+      deleteIcon.addEventListener("click", () => {
+        todoArray.splice(index, 1); // Remove the item from the array
+        localStorage.setItem("todoItem", JSON.stringify(todoArray));
+        displayTodo(); // Refresh the todo list
+      });
     });
   };
 
   // Display the todo items when the page loads
   displayTodo();
 }
-
-// Call the function to initialize the page
-todoPage();
-
 
 // Call the function to initialize the page
 todoPage();

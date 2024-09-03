@@ -1332,3 +1332,23 @@ gap: 0.25rem;
   flex-direction: column;
   gap: 16px;
  }
+
+ /* Strike-through style for completed tasks */
+.todoHeader h1.done {
+  text-decoration: line-through;
+}
+
+/* Optional: Style for edit and delete icons */
+.editDel i {
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 1rem;
+}
+
+.editDel i:hover {
+  color: #007BFF;
+}
+/* Ensure the form is initially hidden */
+#todoForm {
+  display: none; /* or flex, depending on your initial state */
+}

@@ -11,7 +11,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<script src="./Index.js" defer></script>
+<script src="./index.js" defer></script>
 </head>
 <body>
 <section class="headSection">
@@ -222,5 +222,38 @@
         </form>
     </div>
 </section>
+<main class="budgetmain">
+    <section class="addBudgetAddExpenses">
+        <button class="openAddBudget">Add Budget <i class="fa-solid fa-plus"></i></button>
+        <button class="openAddExpenses">Add Expenses <i class="fa-solid fa-plus"></i></button>
+    </section>
+
+    <section class="addBudgetOverlay">
+        <form class="addBudget">
+            <i class="fa-solid fa-xmark"></i>
+            <div class="budgetField">
+            <label for="addBudget">Budget:</label>
+            <input type="number" name="addBudget" class="addBudget" placeholder="Enter Budget Amount">
+        </div>
+            <button class="addBudget">Add Budget</button>
+        </form>
+    </section>
+
+    <section class="addExpenesOverlay">
+        <form class="addExpenses">
+            <i class="fa-solid fa-xmark"></i>
+            <div class="expensesField">
+            <label for="addExpensesName">Expenses Name:</label>
+            <input type="text" name="addExpensesName" class="addExpensesName" placeholder="Enter Expenses Name">
+        </div>
+            <div class="expensesField">
+            <label for="addExpenses">Expenses Amount:</label>
+            <input type="number" name="addExpenses" class="addExpenses" placeholder="Enter Expenses Amount">
+        </div>
+            <button class="addExpenses">Add Expenses</button>
+        </form>
+    </section>
+</main>
+
 </body>
 </html>

@@ -1352,3 +1352,204 @@ gap: 0.25rem;
 #todoForm {
   display: none; /* or flex, depending on your initial state */
 }
+
+/* Budgeting Style */
+
+.budgetmain{
+ display: flex;
+ justify-content: center;
+position: relative;
+}
+
+
+
+ .openAddBudget, .openAddExpenses{
+  margin-top: 16px;
+  display: flex;
+padding: 0.5rem;
+justify-content: center;
+align-items: center;
+gap: 0.375rem;
+align-self: stretch;
+border-radius: 1rem;
+background: var(--Schemes-Primary, #00696F);
+
+/* pressed */
+box-shadow: -1px -1px 2px 0px #FFF, 1px 1px 2px 0px rgba(0, 105, 111, 0.50);
+
+/* material-theme/label/large */
+font-family: Montserrat;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1.25rem; /* 142.857% */
+letter-spacing: 0.00625rem;
+color: #fff;
+width: 288px;
+ }
+
+ .addBudgetAddExpenses{
+  display: flex;
+ flex-direction: column;
+gap:8px; 
+}
+
+.addBudgetOverlay{
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.7;
+  display: none;
+  justify-content: center;
+padding-top:10rem ;
+position: fixed;
+z-index: 99999;
+
+}
+
+.addBudget input{
+  border-radius: 12.5rem;
+  background: #FFF;
+  
+  /* Inner shadow */
+  box-shadow: -1px -1px 2px 0px #FFF inset, 1px 1px 2px 0px rgba(0, 105, 111, 0.50) inset;
+flex: 1 0 0;
+width: 288px;
+height: 56px;
+padding: 16px;
+}
+
+.addBudget label{
+  color: #000;
+
+/* Body Medium/Regular */
+font-family: Montserrat;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.25rem; /* 142.857% */
+letter-spacing: -0.04375rem;
+}
+
+.addBudget button{
+  display: flex;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.375rem;
+  align-self: stretch;
+  border-radius: 2rem;
+background: var(--Schemes-On-Primary, #FFF);
+
+/* pressed */
+box-shadow: -1px -1px 2px 0px #FFF, 1px 1px 2px 0px rgba(0, 105, 111, 0.50);
+width: 288px;
+height: 40px;
+
+/* material-theme/label/large */
+font-family: Montserrat;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1.25rem; /* 142.857% */
+letter-spacing: 0.00625rem;
+color: #000;
+}
+.budgetField{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.addBudget{
+
+  display: flex;
+padding: 1rem;
+flex-direction: column;
+align-items: flex-start;
+gap: 1rem;
+align-self: stretch;
+border-radius:1rem;
+background: #FFF;
+width: fit-content;
+height: fit-content;
+}
+
+.addExpenesOverlay{
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.7;
+  display: none;
+  justify-content: center;
+padding-top:10rem ;
+position: fixed;
+z-index: 99999;
+}
+
+.addExpenses{
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  align-self: stretch;
+  border-radius:1rem;
+  background: #FFF;
+  width: fit-content;
+  height: fit-content;
+}
+
+.addExpenses input{
+  border-radius: 12.5rem;
+  background: #FFF;
+  
+  /* Inner shadow */
+  box-shadow: -1px -1px 2px 0px #FFF inset, 1px 1px 2px 0px rgba(0, 105, 111, 0.50) inset;
+flex: 1 0 0;
+width: 288px;
+height: 56px;
+padding: 16px;
+}
+
+.addExpenses label{
+  color: #000;
+
+/* Body Medium/Regular */
+font-family: Montserrat;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.25rem; /* 142.857% */
+letter-spacing: -0.04375rem;
+}
+
+.expensesField{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+ .addExpenses button{
+  display: flex;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.375rem;
+  align-self: stretch;
+  border-radius: 2rem;
+background: var(--Schemes-On-Primary, #FFF);
+
+/* pressed */
+box-shadow: -1px -1px 2px 0px #FFF, 1px 1px 2px 0px rgba(0, 105, 111, 0.50);
+width: 288px;
+height: 40px;
+
+/* material-theme/label/large */
+font-family: Montserrat;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1.25rem; /* 142.857% */
+letter-spacing: 0.00625rem;
+color: #000;
+ }

@@ -512,5 +512,39 @@
     </div>
   
 </main>
+
+<footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About</h3>
+        <p>This app helps manage blogs, budgets, to-do lists, and provides weather updates.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Me</h3>
+        <ul class="social-media">
+          <li><a href="https://x.com/Fhatboy_UI" target="_blank">Twitter</a></li>
+          <li><a href=" https://www.linkedin.com/in/chuks-omeifeukwu-17938b272/" target="_blank">LinkedIn</a></li>
+          <li><a href=" https://www.behance.net/chuksomeifeukwu" target="_blank">Behance</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Portfolio</h3>
+        <a href="https://about.me/chuks_omeifeukwu/getstarted" target="_blank">Visit My Portfolio</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Fhatboy_UI. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
 </body>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const yearElement = document.querySelector('.footer-bottom p');
+  const currentYear = new Date().getFullYear();
+  yearElement.innerHTML = `&copy; ${currentYear} Your App Name. All Rights Reserved.`;
+});
+
+
+</script>
 </html>

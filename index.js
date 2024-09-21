@@ -6,7 +6,7 @@ let calculatorOverlay = document.querySelector(`.calculatorSection`);
 let cancelCalOverlay = document.querySelector(`#cancelOverlay`);
 let sideBarCancel = document.querySelector(`.fa-xmark`);
 
-
+// budgeting()
 
 // sideBar
 menuBar.addEventListener(`click`, () => {
@@ -955,3 +955,9 @@ function todoPage() {
 
 // Call the function to initialize the page
 todoPage();
+ 
+
+// Budgeting code
+
+
+

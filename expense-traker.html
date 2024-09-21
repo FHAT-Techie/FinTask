@@ -229,31 +229,197 @@
     </section>
 
     <section class="addBudgetOverlay">
-        <form class="addBudget">
-            <i class="fa-solid fa-xmark"></i>
+        <form class="addBudgetForm">
+            <i class="fa-solid fa-xmark closeBudget"></i>
             <div class="budgetField">
-            <label for="addBudget">Budget:</label>
-            <input type="number" name="addBudget" class="addBudget" placeholder="Enter Budget Amount">
-        </div>
-            <button class="addBudget">Add Budget</button>
+                <label for="addBudget">Budget:</label>
+                <input type="number" name="addBudget" class="addBudgetInput" placeholder="Enter Budget Amount">
+            </div>
+            <button class="addBudget" id="addBudgetBTN" type="submit">Add Budget</button>
         </form>
     </section>
 
     <section class="addExpenesOverlay">
-        <form class="addExpenses">
-            <i class="fa-solid fa-xmark"></i>
+        <form class="addExpensesForm">
+            <i class="fa-solid fa-xmark closeExpenses"></i>
             <div class="expensesField">
-            <label for="addExpensesName">Expenses Name:</label>
-            <input type="text" name="addExpensesName" class="addExpensesName" placeholder="Enter Expenses Name">
-        </div>
+                <label for="addExpensesName">Expenses Name:</label>
+                <input type="text" name="addExpensesName" class="addExpensesName" placeholder="Enter Expenses Name">
+            </div>
             <div class="expensesField">
-            <label for="addExpenses">Expenses Amount:</label>
-            <input type="number" name="addExpenses" class="addExpenses" placeholder="Enter Expenses Amount">
-        </div>
-            <button class="addExpenses">Add Expenses</button>
+                <label for="addExpenses">Expenses Amount:</label>
+                <input type="number" name="addExpenses" class="addExpenses" placeholder="Enter Expenses Amount">
+            </div>
+            <button class="addExpensesBTN" type="submit">Add Expenses</button>
         </form>
     </section>
 </main>
 
-</body>
+<main class="budgetExpensesOutput">
+    <div class="dashboard">
+        <div class="budgetOutput">
+            <i class="fa-solid fa-wallet"></i>
+            <h3>Budget</h3>
+            <h1 id="budgetValue">0</h1>
+        </div>
+        <div class="expensesOutput">
+            <i class="fa-solid fa-money-bill-wave"></i>
+            <h3>Expenses</h3>
+            <h1 id="expensesValue">0</h1>
+        </div>
+        <div class="balanceOutput">
+            <i class="fa-solid fa-naira-sign"></i>
+            <h3>Balance</h3>
+            <h1 id="balanceValue">0</h1>
+        </div>
+    </div>
+
+    <div class="expensesContainer"></div>
+</main>
+
+
+<script>function budgeting() {
+    let openBudgetOverlay = document.querySelector('.openAddBudget');
+    let addBudgetOverlay = document.querySelector('.addBudgetOverlay');
+    let closeBudgetOverlay = document.querySelector('.closeBudget');
+
+    let openExpensesOverlay = document.querySelector('.openAddExpenses');
+    let addExpensesOverlay = document.querySelector('.addExpenesOverlay');
+    let closeExpensesOverlay = document.querySelector('.closeExpenses');
+
+    // Open and close budget overlay
+    openBudgetOverlay.addEventListener('click', () => {
+        addBudgetOverlay.style.display = 'flex';
+    });
+
+    closeBudgetOverlay.addEventListener('click', () => {
+        addBudgetOverlay.style.display = 'none';
+    });
+
+    // Open and close expenses overlay
+    openExpensesOverlay.addEventListener('click', () => {
+        addExpensesOverlay.style.display = 'flex';
+    });
+
+    closeExpensesOverlay.addEventListener('click', () => {
+        addExpensesOverlay.style.display = 'none';
+    });
+}
+
+budgeting();
+infoCollectionAndDisplay();
+
+let totalExpenses = 0;
+
+function infoCollectionAndDisplay() {
+    // Budget Form Elements
+    let addBudgetForm = document.querySelector('.addBudgetForm');
+    let budgetValueInput = document.querySelector('.addBudgetInput');
+    let budgetValueDisplay = document.querySelector('#budgetValue');
+    let balanceValueDisplay = document.querySelector('#balanceValue');
+
+    // Expenses Form Elements
+    let addExpensesForm = document.querySelector('.addExpensesForm');
+    let expensesNameInput = document.querySelector('.addExpensesName');
+    let expensesAmountInput = document.querySelector('.addExpenses');
+    let expensesValueDisplay = document.querySelector('#expensesValue');
+    let expensesContainer = document.querySelector('.expensesContainer');
+
+    // Load budget and expenses from local storage
+    loadFromLocalStorage();
+
+    // Handle budget form submission
+    addBudgetForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        let budget = parseFloat(budgetValueInput.value);
+        if (!isNaN(budget) && budget > 0) {
+            budgetValueDisplay.textContent = `₦${budget.toLocaleString()}`;
+            updateBalance(budget);
+            addBudgetOverlay.style.display = 'none';
+            addBudgetForm.reset();
+            saveToLocalStorage(); // Save budget to local storage
+        }
+    });
+
+    // Handle expenses form submission
+    addExpensesForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        let expenseName = expensesNameInput.value;
+        let expenseAmount = parseFloat(expensesAmountInput.value);
+
+        if (expenseName && !isNaN(expenseAmount) && expenseAmount > 0) {
+            totalExpenses += expenseAmount;
+            expensesValueDisplay.textContent = `₦${totalExpenses.toLocaleString()}`;
+            let budget = parseFloat(budgetValueDisplay.textContent.replace('₦', '').replace(/,/g, ''));
+            updateBalance(budget);
+
+            // Add expense to list
+            addExpenseToList(expenseName, expenseAmount);
+
+            // Reset the form and close overlay
+            addExpensesForm.reset();
+            addExpensesOverlay.style.display = 'none';
+            saveToLocalStorage(); // Save expenses to local storage
+        }
+    });
+}
+
+// Function to update balance display
+function updateBalance(budget) {
+    let balanceValueDisplay = document.querySelector('#balanceValue');
+    balanceValueDisplay.textContent = `₦${(budget - totalExpenses).toLocaleString()}`;
+}
+
+// Function to add expense to the list
+function addExpenseToList(name, amount) {
+    let expensesContainer = document.querySelector('.expensesContainer');
+    let expenseItem = document.createElement('div');
+    expenseItem.classList.add('expensesItem');
+    expenseItem.innerHTML = `
+        <div class="topexpensesItem">
+            <h3>${name}</h3>
+            <p>₦${amount.toLocaleString()}</p>
+        </div>
+        <div class="buttomexpensesItem">
+            <button class="deleteExpense"><i class="fa-solid fa-trash"></i></button>
+        </div>
+    `;
+    expensesContainer.appendChild(expenseItem);
+
+    // Add delete functionality
+    expenseItem.querySelector('.deleteExpense').addEventListener('click', () => {
+        totalExpenses -= amount;
+        expensesValueDisplay.textContent = `₦${totalExpenses.toLocaleString()}`;
+        let budget = parseFloat(budgetValueDisplay.textContent.replace('₦', '').replace(/,/g, ''));
+        updateBalance(budget);
+        expensesContainer.removeChild(expenseItem);
+        saveToLocalStorage(); // Save changes to local storage
+    });
+}
+
+// Function to save budget and expenses to local storage
+function saveToLocalStorage() {
+    const budget = document.querySelector('#budgetValue').textContent.replace('₦', '').replace(/,/g, '');
+    localStorage.setItem('budget', budget);
+    localStorage.setItem('totalExpenses', totalExpenses);
+}
+
+// Function to load budget and expenses from local storage
+function loadFromLocalStorage() {
+    const budget = localStorage.getItem('budget');
+    const expenses = localStorage.getItem('totalExpenses');
+
+    if (budget) {
+        totalExpenses = parseFloat(expenses) || 0;
+        document.querySelector('#budgetValue').textContent = `₦${parseFloat(budget).toLocaleString()}`;
+        document.querySelector('#expensesValue').textContent = `₦${totalExpenses.toLocaleString()}`;
+        let balanceValueDisplay = document.querySelector('#balanceValue');
+        balanceValueDisplay.textContent = `₦${(parseFloat(budget) - totalExpenses).toLocaleString()}`;
+    }
+}
+
+
+</script>
+
+
 </html>
